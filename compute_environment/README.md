@@ -12,6 +12,8 @@ cd ingests/
 
 # Create the virtual environment (tested with Python 3.12.4)
 conda env create -f environment.yml
+cd ../
+rm -rf ingests/
 conda activate ingests-dev
 
 # Install Globus tools
