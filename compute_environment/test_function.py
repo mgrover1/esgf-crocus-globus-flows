@@ -2,8 +2,8 @@ from globus_compute_sdk import Client, Executor
 import xarray as xr
 
 # Define UUIDs
-endpoint_uuid = "8af71930-d8ac-42cc-805c-48c7aa96db39"
-function_uuid = "7c57d7aa-c9c8-4d83-90db-2352b1cfa6fb"
+endpoint_uuid = "<your-endpoint-uuid>"
+function_uuid = "<your-ingest-wxt-uuid>"
 
 # Create Globus SDK Executor (currently using your own user credentials)
 gcc = Client()
@@ -17,7 +17,7 @@ data = {
     "d": 1,
     "site": 'NU',
     "hours": 1,
-    "odir": "/home/bcote/CROCUS/output/"
+    "odir": "<your-output-path--must-be-an-existing-directory>"
 }
 
 # Start the task

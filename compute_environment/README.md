@@ -29,14 +29,6 @@ Using Pip (requirements.txt generated from Python 3.12.4 ESGF environment). Once
 pip install -r requirements.txt
 ```
 
-## Globus Compute Endpoint
-
-Create an endpoint using LocalProvider config file. Make sure to customize the `worker_init` field accordingly to activate your environment.
-```bash
-globus-compute-endpoint configure --endpoint-config endpoint_configs/esgf_crocus_config.yaml esgf_crocus
-globus-compute-endpoint start esgf_crocus
-```
-
 ## Globus Compute Function
 
 Register the ESGF CROCUS ingest-wxt function.
@@ -44,9 +36,17 @@ Register the ESGF CROCUS ingest-wxt function.
 python register_functions/gc_ingest_wxt.py
 ```
 
+## Globus Compute Endpoint
+
+Create an endpoint using the `esgf_crocus_config.yaml` config file. Make sure to 1) customize the `worker_init` field to activate your environment and 2) add the function UUIDs in the `allowed_functions` field.
+```bash
+globus-compute-endpoint configure --endpoint-config endpoint_configs/esgf_crocus_config.yaml esgf_crocus
+globus-compute-endpoint start esgf_crocus
+```
+
 ## Test Framework
 
-To test the Globus Compute framework, customize the `test_function.py` file with your own UUIDs and your own output path (`odir`), and run the script.
+To test the Globus Compute framework, run the `test_function.py` script. Make sure to customize 1) the endpoint and function UUIDs and 2) the output path (`odir`).
 ```bash
 python test_function.py
 ```

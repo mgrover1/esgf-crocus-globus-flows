@@ -9,8 +9,6 @@ engine:
     worker_init: |
       . "/home/bcote/anaconda3/etc/profile.d/conda.sh"
       conda activate ingests-dev
-      cd /home/bcote/
   type: GlobusComputeEngine
 allowed_functions:
-  - 7c57d7aa-c9c8-4d83-90db-2352b1cfa6fb # gc_ingest_wxt.py
-  - 4255a044-e993-4459-a963-26b48a03b375 # test.py
+  - ... # Add your function UUID here
