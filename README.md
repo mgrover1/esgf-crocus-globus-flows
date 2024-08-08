@@ -1,2 +1,2 @@
-# esgf-crocus-globus-flows
-Globus Flows for the ESGF CROCUS project
+# ESGF CROCUS Globus Flows
+Developent of Globus Flows for the ESGF CROCUS project.
