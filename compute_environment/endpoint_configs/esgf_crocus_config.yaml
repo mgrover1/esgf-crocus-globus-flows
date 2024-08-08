@@ -1,0 +1,16 @@
+amqp_port: 443
+display_name: ESGF-CROCUS
+engine:
+  provider:
+    init_blocks: 1
+    max_blocks: 1
+    min_blocks: 0
+    type: LocalProvider
+    worker_init: |
+      . "/home/bcote/anaconda3/etc/profile.d/conda.sh"
+      conda activate ingests-dev
+      cd /home/bcote/
+  type: GlobusComputeEngine
+allowed_functions:
+  - 7c57d7aa-c9c8-4d83-90db-2352b1cfa6fb # gc_ingest_wxt.py
+  - 4255a044-e993-4459-a963-26b48a03b375 # test.py
