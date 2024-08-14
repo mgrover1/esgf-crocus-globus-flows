@@ -1,0 +1,159 @@
+{
+    "@context": "http://schema.org/",
+    "@type": "Dataset",
+    "name": "CROCUS Weather Data at Northeastern Illinois University Rooftop",
+    "description": [
+        "This dataset is from the Department of Energy Office of Science funded project, Community Research on Urban and Climate Science (CROCUS) (https://crocus-urban.org/). Vaisala WXT sensor is an all-in-one weather instrument that provides 6 of the most important weather parameters: barometric pressure, temperature, relative humidity, rainfall, wind speed and direction. Temperature, pressure, relative humidity, and rainfall are sampled at 1 second frequency, while wind speed/direction is measured at ten per second (10Hz) frequency. These measurements are useful for looking at characterizing local weather, identifying unique weather events, and studying local turbulence, especially given the high temporal resolution of the wind measurements.",
+        "Datasets are stored in the netCDF data format, and we we encourage users to make use the associated toolkits available from Unidata (https://www.unidata.ucar.edu/software/netcdf/), Project Pythia (https://foundations.projectpythia.org/core/data-formats/netcdf-cf.html), and our \u201cInstrument Cookbooks\u201d (https://crocus-urban.github.io/instrument-cookbooks) for more information on how to process the metadata-rich datasets."
+    ],
+    "citation": "https://www.vaisala.com/en/products/weather-environmental-sensors/weather-transmitter-wxt530-series",
+    "creator": [
+        {
+            "@id": "https://orcid.org/0000-0003-4655-6912",
+            "givenName": "Joseph",
+            "familyName": "O'Brien",
+            "affiliation": "Argonne National Laboratory",
+            "email": "obrienj@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0003-0346-7258",
+            "givenName": "Gregory",
+            "familyName": "Anderson",
+            "affiliation": "Northeastern Illinois University",
+            "email": "g-anderson@neiu.edu"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-1589-6474",
+            "givenName": "Matthew",
+            "familyName": "Tuftedal",
+            "affiliation": "Argonne National Laboratory",
+            "email": "mtuftedal@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-0370-8974",
+            "givenName": "Maxwell",
+            "familyName": "Grover",
+            "affiliation": "Argonne National Laboratory",
+            "email": "mgrover@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-6903-9435",
+            "givenName": "Paytsar",
+            "familyName": "Muradyan",
+            "affiliation": "Argonne National Laboratory",
+            "email": "pmuradyan@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-2303-687X",
+            "givenName": "Scott",
+            "familyName": "Collis",
+            "affiliation": "Argonne National Laboratory",
+            "email": "scollis@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-7911-1672",
+            "givenName": "Seongha",
+            "familyName": "Park",
+            "affiliation": "Argonne",
+            "email": "seongha.park@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-8726-7837",
+            "givenName": "Dario",
+            "familyName": "Dematties",
+            "affiliation": "Argonne National Laboratory",
+            "email": "ddematties@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-8911-2783",
+            "givenName": "Rajesh",
+            "familyName": "Sankaran",
+            "affiliation": "Argonne National Laboratory",
+            "email": "rajesh@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0003-1444-0624",
+            "givenName": "Nicola",
+            "familyName": "Ferrier",
+            "affiliation": "Argonne National Laboratory",
+            "email": "nferrier@anl.gov"
+        },
+        {
+            "givenName": "Sean",
+            "familyName": "Shahkarami",
+            "affiliation": "Northwestern University",
+            "email": "sean.shahkarami@northwestern.edu"
+        },
+        {
+            "@id": "https://orcid.org/0000-0003-1257-9921",
+            "givenName": "Yongho",
+            "familyName": "Kim",
+            "affiliation": "Argonne National Laboratory",
+            "email": "yongho.kim@anl.gov"
+        },
+        {
+            "@id": "https://orcid.org/0000-0003-0504-2413",
+            "givenName": "Evan",
+            "familyName": "Keeler",
+            "affiliation": "Argonne National Laboratory",
+            "email": "ekeeler@anl.gov"
+        }
+    ],
+    "datePublished": "2024-04-02",
+    "keywords": [
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE",
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WATER VAPOR",
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC PRESSURE",
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WINDS"
+    ],
+    "variableMeasured": [
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE TEMPERATURE > AIR TEMPERATURE",
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WINDS > SURFACE WINDS > WIND SPEED",
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WINDS > SURFACE WINDS > WIND DIRECTION",
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE TEMPERATURE > DEW POINT TEMPERATURE",
+        "EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WATER VAPOR > WATER VAPOR INDICATORS > HUMIDITY > RELATIVE HUMIDITY",
+        "EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > LIQUID PRECIPITATION > RAIN"
+    ],
+    "license": "http://creativecommons.org/licenses/by/4.0/",
+    "spatialCoverage": [
+        {
+            "description": "Northeastern Illinois Univeristy rooftop",
+            "geo": [
+                {
+                    "name": "Northwest",
+                    "latitude": 41.98053299,
+                    "longitude": -87.71662375
+                },
+                {
+                    "name": "Southeast",
+                    "latitude": 41.98053299,
+                    "longitude": -87.71662375
+                }
+            ]
+        }
+    ],
+    "funder": {
+        "@id": "http://dx.doi.org/10.13039/100006206",
+        "name": "U.S. DOE > Office of Science > Biological and Environmental Research (BER)"
+    },
+    "temporalCoverage": {
+        "startDate": "2023-05-16",
+        "endDate": "2023-08-30"
+    },
+    "measurementTechnique": "Direct measurements from the Vaisala-WXT536 sensor include temeperature, humidity, wind speed, wind direction, and rainfall rate as well as accumulation. Derived variables include dewpoint. Rainfall is measured using an acoustic rain gauge.",
+    "provider": {
+        "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "ess-dive",
+            "value": "e48add86-2fa5-4a04-a530-86906241ebbc"
+        },
+        "name": "Community Research on Climate and Urban Science Urban Integrated Field Laboratory (CROCUS UIFL)"
+    },
+    "editor": {
+        "@id": "https://orcid.org/0000-0003-4655-6912",
+        "givenName": "Joseph",
+        "familyName": "O'Brien",
+        "affiliation": "Argonne National Laboratory",
+        "email": "obrienj@anl.gov"
+    }
+}
