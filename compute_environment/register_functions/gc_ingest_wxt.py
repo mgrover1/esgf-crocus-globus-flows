@@ -25,7 +25,10 @@ def gc_ingest_wxt(ndays=None, y=None, m=None, d=None, site=None, hours=24, odir=
             d (int): Day start
             site (str): CROCUS Site
             hours (int): Number of hours in the time window
-            odir (str): Output directory (must exist)
+            odir (str): Full path (no ~/) output directory (must exist)
+
+        Note:
+            If y, m, d are all None, it will assume the current date (UTC)
     """
 
     # [EDITS from original] - Site definition moved here before site validation step
@@ -66,19 +69,31 @@ def gc_ingest_wxt(ndays=None, y=None, m=None, d=None, site=None, hours=24, odir=
     if not site in global_sites:
         raise ValueError(f"'site' must be one of the following: {global_sites.keys()}.")
 
+    # [EDITS from original] -- Extract current date if date not provided as inputs
+    NoneType = type(None)
+    if isinstance(y, NoneType) and isinstance(m, NoneType) and isinstance(d, NoneType):
+        from datetime import datetime
+        import pytz
+        now = datetime.now(pytz.timezone("UTC"))
+        y, m, d = now.year, now.month, now.day
+
+    # [EDITS from original] -- Validate input date
+    else:
+        if (not isinstance(y, int)) or (not isinstance(m, int)) or (not isinstance(d, int)):
+            raise ValueError("'y', 'm', and 'd' must be integers, or all None if selecting today (US/Central).")
+
     # [EDITS from original] -- Validate other selected inputs
     if not isinstance(ndays, int):
         raise ValueError("'ndays' must be an integer.")
-    if not isinstance(y, int):
-        raise ValueError("'y' must be an integer.")
-    if not isinstance(m, int):
-        raise ValueError("'m' must be an integer.")
-    if not isinstance(d, int):
-        raise ValueError("'d' must be an integer.")
     if not isinstance(hours, int):
         raise ValueError("'hours' must be an integer.")
     if not isinstance(odir, str):
         raise ValueError("'odir' must be a string.")
+
+    # [EDITS from original] -- Check if directory exists
+    import os
+    if not os.path.isdir(odir):
+        raise ValueError("'odir' directory does not exists. Make sure to use a full path (no ~/)")
 
     # Import packages
     import sage_data_client
@@ -90,7 +105,6 @@ def gc_ingest_wxt(ndays=None, y=None, m=None, d=None, site=None, hours=24, odir=
     import numpy as np
     import datetime
     import xarray as xr
-    import os
     import argparse
 
     # [EDITS from original] -- Added hours as a variable
