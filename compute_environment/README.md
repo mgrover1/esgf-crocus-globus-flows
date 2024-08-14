@@ -22,6 +22,9 @@ pip install globus-compute-endpoint
 
 # Downgrade cryptography to avoid having the warning messages
 pip install cryptography==42.0.0
+
+# Install dotenv for testing functions
+pip install python-dotenv
 ```
 
 Using Pip (requirements.txt generated from Python 3.12.4 ESGF environment). Once you created and activated your python virtual environment, install the relevant packages.
@@ -46,8 +49,16 @@ globus-compute-endpoint start esgf_crocus
 
 ## Test Framework
 
-To test the Globus Compute framework, run the `test_function.py` script. Make sure to customize 1) the endpoint and function UUIDs and 2) the output path (`odir`).
+To test the Globus Compute framework, create an `.env` file with your Globus Compute endpoint and function UUIDs, and the full path (without `~/`) of your output directory (`odir`).
+```bash
+ENDPOINT_UUID="your-compute-endpoint-uuid"
+FUNCTION_UUID="your-compute-function-uuid"
+ODIR="your-full-path-output-directory"
+```
+
+Run the `test_function.py` script using the information stored in the `.env` file.
 ```bash
 python test_function.py
 ```
+
 This should print the list of output files and an example of a generated dataset. The Globus Compute function itself returns the list of output files.

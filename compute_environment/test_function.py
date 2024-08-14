@@ -1,9 +1,13 @@
 from globus_compute_sdk import Client, Executor
 import xarray as xr
+from dotenv import load_dotenv
+import os
 
-# Define UUIDs
-endpoint_uuid = "<your-endpoint-uuid>"
-function_uuid = "<your-ingest-wxt-uuid>"
+# Extract variables from .env file
+load_dotenv()
+endpoint_uuid = os.getenv("ENDPOINT_UUID")
+function_uuid = os.getenv("FUNCTION_UUID")
+odir = os.getenv("ODIR")
 
 # Create Globus SDK Executor (currently using your own user credentials)
 gcc = Client()
@@ -17,7 +21,7 @@ data = {
     "d": 1,
     "site": 'NU',
     "hours": 1,
-    "odir": "<your-output-path--must-be-an-existing-directory>"
+    "odir": odir
 }
 
 # Start the task
