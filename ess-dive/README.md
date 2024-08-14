@@ -16,11 +16,13 @@ pip install requests
 ```
 ## Get Authentication Token
 
-* Go to https://data-sandbox.ess-dive.lbl.gov
+* Go to https://data-sandbox.ess-dive.lbl.gov 
 * Sign in with Orcid
 * Click your Name in the right hand corner and select My Profile (Figure 1)
 * Now Click the Settings>Authentication Token (Figure 2)
 * Scroll down and click Copy on the “Token” tab to get your authentication token (Figure 2)
+
+> Note: For production URL go to https://api.ess-dive.lbl.gov/
 
 ## Prepare metadata
 
@@ -29,6 +31,11 @@ Also move the files and folders you would like to upload to within a single dire
 
 ## Submit
 
+To submit
+
 ```bash
 python3 archive-data.py --token <paste_here> --json_metadata metadata.json --upload_directory ./test-directory/
 ```
+
+> Note: Add --base_url https://api.ess-dive.lbl.gov/ for submitting to production
+
