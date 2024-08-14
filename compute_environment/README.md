@@ -22,9 +22,6 @@ pip install globus-compute-endpoint
 
 # Downgrade cryptography to avoid having the warning messages
 pip install cryptography==42.0.0
-
-# Install dotenv for testing functions
-pip install python-dotenv
 ```
 
 Using Pip (requirements.txt generated from Python 3.12.4 ESGF environment). Once you created and activated your python virtual environment, install the relevant packages.
@@ -56,7 +53,12 @@ FUNCTION_UUID="your-compute-function-uuid"
 ODIR="your-full-path-output-directory"
 ```
 
-Run the `test_function.py` script using the information stored in the `.env` file.
+Install dotenv to allow the testing function to access the environment variables in the `.env` file.
+```bash
+pip install python-dotenv
+```
+
+Run the test script.
 ```bash
 python test_function.py
 ```
