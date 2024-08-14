@@ -25,7 +25,7 @@ pip install requests
 ## Prepare metadata
 
 Adapt the [metadata.json](./metadata.json) file to the metadata details you'd like to submit.
-Also move the files you would like to upload to the directory you'd like to upload.
+Also move the files and folders you would like to upload to within a single directory. The script will recursively traverse through that directory and upload datasets
 
 ## Submit
 
