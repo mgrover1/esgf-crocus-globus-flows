@@ -1,10 +1,11 @@
 # Compute Environment
 
-Instructions on how the compute environment was setup.
+Instructions on how the compute environment can be setup (using Python 3.12.4).
 
 ## ESGF Environment
 
-Using Conda:
+**Using Conda**:
+The following has been tested on a CELS VM:
 ```bash
 # Clone ESGF repo to access the environment file
 git clone https://github.com/CROCUS-Urban/ingests.git
@@ -24,7 +25,31 @@ pip install globus-compute-endpoint
 pip install cryptography==42.0.0
 ```
 
-Using Pip (requirements.txt generated from Python 3.12.4 ESGF environment). Once you created and activated your python virtual environment, install the relevant packages.
+**Using Miniconda**:
+To create your miniconda3 environment, isolate the `.sh` file that fits the operating system hosting your web portal (find the complete list [here](https://repo.anaconda.com/miniconda/)).
+
+Create the miniconda3 folder.
+```bash
+YOUR_SELECTED_FILE="<your-selected-file.sh>"
+wget https://repo.anaconda.com/miniconda/$YOUR_SELECTED_FILE
+chmod +x $YOUR_SELECTED_FILE
+./$YOUR_SELECTED_FILE -b -p ./miniconda3/
+rm $YOUR_SELECTED_FILE
+```
+
+Create your virtual environment with the same python version used with the Globus Compute endpoint (here 3.12.4)
+```bash
+./miniconda3/bin/conda create -y -n esgf-crocus python=3.12.4
+```
+
+Activate your environment, and install the necessary packages (tested on Polaris).
+```bash
+source ./miniconda3/bin/activate ./miniconda3/envs/esgf-crocus
+pip install -r requirements.txt
+```
+
+**Using Pip**:
+The requirements.txt was generated from Python 3.12.4 ESGF environment. Once you created and activated your python virtual environment, install the relevant packages.
 ```bash
 pip install -r requirements.txt
 ```
@@ -38,9 +63,9 @@ python register_functions/gc_ingest_wxt.py
 
 ## Globus Compute Endpoint
 
-Create an endpoint using the `esgf_crocus_config.yaml` config file. Make sure to 1) customize the `worker_init` field to activate your environment and 2) add the function UUIDs in the `allowed_functions` field.
+Create an endpoint using the either the `esgf_crocus_local_config.yaml` or the `esgf_crocus_polaris_config.yaml` config file. Make sure to 1) customize the `worker_init` field to activate your environment and 2) add the function UUIDs in the `allowed_functions` field.
 ```bash
-globus-compute-endpoint configure --endpoint-config endpoint_configs/esgf_crocus_config.yaml esgf_crocus
+globus-compute-endpoint configure --endpoint-config endpoint_configs/YOUR-TARGER-CONFIE-FILE.yaml esgf_crocus
 globus-compute-endpoint start esgf_crocus
 ```
 
