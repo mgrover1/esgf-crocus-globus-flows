@@ -14,7 +14,7 @@ engine:
     launcher:
       type: SimpleLauncher
     account: DataServicePrototype
-    cpus_per_node: 128
+    cpus_per_node: 64
     select_options: ngpus=0
     scheduler_options: '#PBS -l filesystems=home:eagle'
     queue: 'debug'
