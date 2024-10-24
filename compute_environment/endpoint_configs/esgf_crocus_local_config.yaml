@@ -1,5 +1,5 @@
 amqp_port: 443
-display_name: ESGF-CROCUS
+display_name: ESGF-CROCUS-Local
 engine:
   max_workers_per_node: 1
   provider:
