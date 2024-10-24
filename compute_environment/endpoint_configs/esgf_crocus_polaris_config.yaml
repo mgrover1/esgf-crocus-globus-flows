@@ -1,0 +1,29 @@
+amqp_port: 443
+display_name: ESGF-CROCUS-Polaris
+engine:
+  type: GlobusComputeEngine
+  max_retries_on_system_failure: 2
+  max_workers_per_node: 2
+  job_status_kwargs:
+    max_idletime: 300
+  address:
+    type: address_by_interface
+    ifname: bond0
+  provider:
+    type: PBSProProvider
+    launcher:
+      type: SimpleLauncher
+    account: DataServicePrototype
+    cpus_per_node: 128
+    select_options: ngpus=0
+    scheduler_options: '#PBS -l filesystems=home:eagle'
+    queue: 'debug'
+    init_blocks: 0
+    max_blocks: 1
+    min_blocks: 0
+    nodes_per_block: 1
+    walltime: 00:10:00
+    worker_init: |
+      source /home/esgf_crocus_svc/miniconda3/bin/activate /home/esgf_crocus_svc/miniconda3/envs/esgf-crocus
+allowed_functions:
+   - # Add your function UUID here
