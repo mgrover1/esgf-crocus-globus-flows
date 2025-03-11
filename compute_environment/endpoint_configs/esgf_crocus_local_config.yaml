@@ -8,8 +8,7 @@ engine:
     min_blocks: 0
     type: LocalProvider
     worker_init: |
-      . "/home/bcote/anaconda3/etc/profile.d/conda.sh"
-      conda activate ingests-dev
+      conda activate esgf-crocus
   type: GlobusComputeEngine
 allowed_functions:
-  - ... # Add your function UUID here
+  - 166e572b-bbd0-4590-bb71-abad9503426a
