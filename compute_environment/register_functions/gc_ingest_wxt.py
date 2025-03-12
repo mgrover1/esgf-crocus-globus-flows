@@ -34,38 +34,116 @@ def gc_ingest_wxt(ndays=None, y=None, m=None, d=None, site=None, hours=24, odir=
     # [EDITS from original] - Site definition moved here before site validation step
     wxt_global_NEIU = {'conventions': "CF 1.10",
                        'site_ID' : "NEIU",
-                      'CAMS_tag' : "CMS-WXT-002",
-                      'datastream' : "CMS_wxt536_NEIU_a1",
-                      'datalevel' : "a1",
-                       "plugin" : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                       'CAMS_tag' : "CMS-WXT-002",
+                       'datastream' : "CMS_wxt536_NEIU_a1",
+                       'datalevel' : "a1",
+                       'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
                        'WSN' : 'W08D',
-                      'latitude' : 41.9804526,
-                      'longitude' : -87.7196038}
+                       'latitude' : 41.9804526,
+                       'longitude' : -87.7196038}
+
     wxt_global_NU = {'conventions': "CF 1.10",
-                      'WSN':'W099',
-                       'site_ID' : "NU",
-                      'CAMS_tag' : "CMS-WXT-005",
-                      'datastream' : "CMS_wxt536_NU_a1",
-                      'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
-                      'datalevel' : "a1",
-                      'latitude' : 42.051469749,
-                      'longitude' : -87.677667183}
+                     'WSN':'W099',
+                     'site_ID' : "NU",
+                     'CAMS_tag' : "CMS-WXT-005",
+                     'datastream' : "CMS_wxt536_NU_a1",
+                     'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                     'datalevel' : "a1",
+                     'latitude' : 42.051469749,
+                     'longitude' : -87.677667183}
+
     wxt_global_CSU = {'conventions': "CF 1.10",
                       'WSN':'W08E',
-                       'site_ID' : "CSU",
+                      'site_ID' : "CSU",
                       'CAMS_tag' : "CMS-WXT-003",
                       'datastream' : "CMS_wxt536_CSU_a1",
+                      'plugin' : "local/waggle-wxt536",
+                      'datalevel' : "a1",
+                      'latitude' : 41.71996846,
+                      'longitude' : -87.612805717}
+
+    wxt_global_ATMOS = {'conventions': "CF 1.10",
+                        'WSN':'W0A4',
+                        'site_ID' : "ATMOS",
+                        'CAMS_tag' : "CMS-WXT-001",
+                        'datastream' : "CMS_wxt536_ATMOS_a1",
+                        'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                        'datalevel' : "a1",
+                        'latitude' : 41.7016264,
+                        'longitude' : -87.9956515}
+
+    wxt_global_UIC = {'conventions': "CF 1.10",
+                      'WSN':'W096',
+                      'site_ID' : "UIC",
+                      'CAMS_tag' : "CMS-WXT-006",
+                      'datastream' : "CMS_wxt536_UIC_a1",
                       'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
                       'datalevel' : "a1",
-                      'latitude' : 41.71991216,
-                      'longitude' : -87.612834722}
+                      'latitude' : 41.869407936,
+                      'longitude' : -87.645806251}
 
-    # [EDITS from original] -- Make sure the selected CROCUS site is available
-    global_sites = {
-        'NU' : wxt_global_NU, 
-        'CSU': wxt_global_CSU,
-        'NEIU' : wxt_global_NEIU
-    }
+    wxt_global_CCI = {'conventions': "CF 1.10",
+                      'WSN':'W08B',
+                      'site_ID' : "NEIU_CCIS",
+                      'CAMS_tag' : "CMS-WXT-013",
+                      'datastream' : "CMS_wxt536_NEIU_CCICS_a1",
+                      'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                      'datalevel' : "a1",
+                      'latitude' : 41.823038311,
+                      'longitude' : -87.609379028}
+    
+    wxt_global_BIG = {'conventions': "CF 1.10",
+                      'WSN':'W0A0',
+                      'site_ID' : "BIG",
+                      'CAMS_tag' : "CMS-WXT-016",
+                      'datastream' : "CMS_wxt536_BIG_a1",
+                      'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                      'datalevel' : "a1",
+                      'latitude' : 41.77702369,
+                      'longitude' : -87.609721059}
+
+    wxt_global_HUM = {'conventions': "CF 1.10",
+                      'WSN':'W0A1',
+                      'site_ID' : "HUM",
+                      'CAMS_tag' : "CMS-WXT-010",
+                      'datastream' : "CMS_wxt536_HUM_a1",
+                      'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                      'datalevel' : "a1",
+                      'latitude' : 41.905513206,
+                      'longitude' : -87.703525713}
+    
+    wxt_global_DOWN = {'conventions': "CF 1.10",
+                      'WSN':'W09D',
+                      'site_ID' : "DOWN",
+                      'CAMS_tag' : "CMS-WXT-008",
+                      'datastream' : "CMS_wxt536_DOWN_a1",
+                      'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                      'datalevel' : "a1",
+                      'latitude' : 41.701476659,
+                      'longitude' : -87.9953044}
+    
+    wxt_global_SHEDD = {'conventions': "CF 1.10",
+                        'WSN':'W09E',
+                        'site_ID' : "SHEDD",
+                        'CAMS_tag' : "CMS-WXT-007",
+                        'datastream' : "CMS_wxt536_SHEDD_a1",
+                        'plugin' : "registry.sagecontinuum.org/jrobrien/waggle-wxt536:0.*",
+                        'datalevel' : "a1",
+                        'latitude' : 41.867918965,
+                        'longitude' : -87.613535027}
+    #put these in a dictionary for accessing
+
+    global_sites = {'NU' : wxt_global_NU, 
+                    'CSU': wxt_global_CSU,
+                    'NEIU' : wxt_global_NEIU,
+                    'ATMOS': wxt_global_ATMOS,
+                    'UIC': wxt_global_UIC,
+                    'NEIU_CCICS': wxt_global_CCI,
+                    "BIG": wxt_global_BIG,
+                    'HUM': wxt_global_HUM,
+                    "DOWN": wxt_global_DOWN,
+                    "SHEDD": wxt_global_SHEDD}
+
     if not site in global_sites:
         raise ValueError(f"'site' must be one of the following: {global_sites.keys()}.")
 

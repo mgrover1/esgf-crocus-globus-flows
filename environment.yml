@@ -1,0 +1,24 @@
+name: esgf-crocus
+channels:
+  - conda-forge
+dependencies:
+  - python<3.12
+  - numpy
+  - scipy
+  - xarray
+  - matplotlib
+  - netcdf4
+  - pillow
+  - metpy
+  - jupyterlab
+  - numpy
+  - python-dotenv
+  - pip
+  - pip:
+    - sage-data-client
+    - ambient-api
+    - globus-compute-common
+    - globus-compute-endpoint>=3.0
+    - globus-compute-sdk>=3.0
+    - globus-identity-mapping
+    - globus-sdk
