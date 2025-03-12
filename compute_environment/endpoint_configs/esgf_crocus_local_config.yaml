@@ -11,4 +11,5 @@ engine:
       conda activate esgf-crocus
   type: GlobusComputeEngine
 allowed_functions:
-  - 166e572b-bbd0-4590-bb71-abad9503426a
+  - 1c4aea51-52a0-4235-a5d2-cff872abc001
+  - b4930dc7-6c35-4cdc-910d-82765073b706
